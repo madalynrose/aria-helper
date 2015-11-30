@@ -7,7 +7,36 @@
     <% metas.forEach(function(meta) { %>
       <%- meta -%>
     <% }) %>
-    <title>Redux Coffee Boilerplate</title>
+    <title>Aria Helper</title>
+    <style>
+      #aria-helper{
+        height:100%;
+      }
+
+      #roles, #states, #properties{
+        width:100%;
+        display: block;
+        float:left;
+      }
+
+      #roles ul, #states ul, #properties ul {
+        list-style: none;
+      }
+
+      #roles li, #states li, #properties li {
+        height:110px;
+        width:22%;
+        padding:5px;
+        margin:5px;
+        float:left;
+        display:block;
+      }
+
+      .value-name{
+        font-weight: bold;
+        margin-top:3px;
+      }
+    </style>
     <script id="initial-state" type="application/json"><%- state %></script>
     {% if (o.htmlWebpackPlugin.options.hot_reload) { %}
       <script src="http://localhost:4243/webpack-dev-server.js"></script>

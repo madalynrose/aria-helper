@@ -10,7 +10,7 @@ React = require 'react'
 Page = require './components/Page'
 
 Index = require './views/Index'
-Todo  = require './views/Todo'
+AriaHelper  = require './views/AriaHelper'
 
 { combineReducers, createStore, applyMiddleware } = require 'redux'
 thunk = require 'redux-thunk'
@@ -19,8 +19,7 @@ thunk = require 'redux-thunk'
 # handled by `Index` component and `/todo` route is handled by `Todo` component.
 module.exports.routes =
   <Route path="/" handler={Page}>
-    <DefaultRoute handler={Index} />
-    <Route path="/todo" handler={Todo} />
+    <DefaultRoute handler={AriaHelper} />
   </Route>
 
 # The method `fetchDataFromRoute` is where all the magic happens.
@@ -55,8 +54,7 @@ module.exports.makeHandler = (Handler, store) ->
 # This method combines all the reducers into one, add the different
 # redux middlewares and hydrate the store with `initialState`.
 module.exports.createStore = (initialState) ->
-  reducers = require './reducers'
-  reducer  = combineReducers reducers
+  reducer = require './reducers/index'
   createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 
   return createStoreWithMiddleware reducer, initialState

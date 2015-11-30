@@ -10,7 +10,7 @@ class Page extends Component
 
   render: ->
     <div>
-      <Link to="/">Index</Link> <Link to="/todo">Todo</Link>
+      <Link to="/">Aria Helper</Link>
       <div><RouteHandler /></div>
     </div>
 
